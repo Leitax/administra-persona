@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cl.desafio</groupId>
-	<artifactId>rest-desafio-administra-persona</artifactId>
+	<artifactId>administra-persona</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>rest-desafio-administra-persona</name>
-	<description>Proyecto Desafio</description>
+	<description>Ejercicio 4</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -25,16 +25,7 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
 		<dependency>
@@ -54,9 +45,9 @@
 			<version>1.6.4</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.36</version>
 		</dependency>
 	</dependencies>
 

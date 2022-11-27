@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch AdministraPersonaApplication",
+            "request": "launch",
+            "mainClass": "cl.desafio.restdesafioadministrapersona.AdministraPersonaApplication",
+            "projectName": "administra-persona"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-RestDesafioAdministraPersonaApplication<rest-desafio-administra-persona>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

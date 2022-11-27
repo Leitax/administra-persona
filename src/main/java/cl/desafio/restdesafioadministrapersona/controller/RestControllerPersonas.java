@@ -1,38 +1,45 @@
 package cl.desafio.restdesafioadministrapersona.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import cl.desafio.restdesafioadministrapersona.entity.Persona;
+import cl.desafio.restdesafioadministrapersona.request.PersonaRequest;
+import cl.desafio.restdesafioadministrapersona.util.Util;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.apache.log4j.Logger;
 
-import cl.desafio.restdesafioadministrapersona.entity.PersonaEntity;
-import cl.desafio.restdesafioadministrapersona.repositorio.PersonaRepository;
 
 @Controller
 @RequestMapping(path="/personas") //ruta para poder usar el metodo
 public class RestControllerPersonas {
 
-    private static Logger log = Logger.getLogger(RestControllerPersonas.class);
-    @Autowired //Para llamar las funcionalidades del repository
-    private PersonaRepository personaRepository;
-    
-    private RestControllerPersonas(PersonaRepository personaRepository){
-        this.personaRepository = personaRepository;
+    private static Logger LOGGER = LoggerFactory.getLogger(RestControllerPersonas.class);
+
+    private RestControllerPersonas(){
+
     }
 
     @PostMapping(path ="/agregar")
-    public @ResponseBody String addNewPersona (@RequestParam String nombre, @RequestParam Integer edad){
+    public @ResponseBody String addNewPersona (@RequestBody PersonaRequest request){
         
-        PersonaEntity persona = new PersonaEntity();
-        persona.setNombre(nombre);
-        persona.setEdad(edad);
-        personaRepository.save(persona);
-        log.info("Persona Guardada");
-        return "Guardado";
+        if (!Util.detectarVuln(request.getNombre())) {
+            LOGGER.info("Variables de entrada: Nombre:  " + request.getNombre() + ", Edad: " + request.getEdad());
+            return "Persona Guardada";
+        }
+        return "No se guarda Persona, Variable nombre con Vulnerabilidad";
     }
 
-    @GetMapping(path = "lista")
-    public @ResponseBody Iterable<PersonaEntity> obtenerListaPersonas(){
-        return personaRepository.findAll();
+    @GetMapping(path = "persona")
+    public @ResponseBody Persona obtenerPersona(@RequestParam String nombre){
+
+        if (!Util.detectarVuln(nombre)) {
+            LOGGER.info("Variables de entrada: Nombre:  " + nombre);
+            Persona persona = new Persona();
+            persona.setNombre(nombre);
+            persona.setEdad(31);
+            return persona;
+        }
+        return null;
     }
 }
