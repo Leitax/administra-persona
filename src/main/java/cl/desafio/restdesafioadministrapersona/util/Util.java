@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 public class Util {
     private static Logger LOGGER = LoggerFactory.getLogger(Util.class);
 
+    // Se detecta caracteres especiales en ascii
     public static boolean detectarVuln(String valor) {
         int contador = 0;
         for (int index = 0; index < valor.length(); index++) {
