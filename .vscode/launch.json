@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RestDesafioAdministraPersonaApplication<rest-desafio-administra-persona>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "cl.desafio.restdesafioadministrapersona.RestDesafioAdministraPersonaApplication",
+            "projectName": "rest-desafio-administra-persona",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

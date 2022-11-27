@@ -1,0 +1,4 @@
+cl\desafio\restdesafioadministrapersona\controller\RestControllerPersonas.class
+cl\desafio\restdesafioadministrapersona\entity\PersonaEntity.class
+cl\desafio\restdesafioadministrapersona\RestDesafioAdministraPersonaApplication.class
+cl\desafio\restdesafioadministrapersona\repositorio\PersonaRepository.class
